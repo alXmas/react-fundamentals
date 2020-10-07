@@ -11,7 +11,7 @@
     const children = 'Hello World'
     const className = 'container'
     const props = {children, className}
-    const element = <div {...props} />
+    const element = React.createElement('div', props)
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
