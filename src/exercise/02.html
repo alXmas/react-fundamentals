@@ -6,11 +6,10 @@
   <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
   <script type="module">
-    const rootElement = document.getElementById('root')
-    const elementType = 'div'
-    const elementProps = { children: 'Hello world!', className: 'container'}
-    const reactElement = React.createElement(elementType, elementProps)
-    
-    ReactDOM.render(reactElement, rootElement)
+    const hello = React.createElement('span', {}, 'Hello ')
+    const world = React.createElement('span', {}, 'World')
+    const reactElement = React.createElement('div', { className: 'container', children: [hello, world] })
+
+    ReactDOM.render(reactElement, document.getElementById('root'))
   </script>
 </body>
