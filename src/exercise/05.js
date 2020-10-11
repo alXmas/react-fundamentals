@@ -4,26 +4,26 @@
 import React from 'react'
 import '../box-styles.css'
 
-function Box({className, style, ...rest}) {
-    return (
-      <div 
-        className={`box ${className}`} 
-        style={{frontStyle: 'italic', ...style}} 
-        {...rest}
-      />
-    )
+function Box({className = '', style, size, ...rest}) {
+  const sizeClassName = size ? `box--${size}` : ''
+  const props = {
+    className: `box ${className} ${sizeClassName}`,
+    style: {fontStyle: 'italic', ...style},
+    ...rest,
+  }
+  return <div {...props} />
 }
 
 function App() {
   return (
     <div>
-      <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
+      <Box size="small" style={{backgroundColor: 'lightblue'}}>
         small lightblue box
       </Box>
-      <Box className="box--medium" style={{backgroundColor: 'pink'}}>
+      <Box size="medium" style={{backgroundColor: 'pink'}}>
         medium pink box
       </Box>
-      <Box className="box--large" style={{backgroundColor: 'orange'}}>
+      <Box size="large" style={{backgroundColor: 'orange'}}>
         large orange box
       </Box>
       <Box>sizeless box</Box>
