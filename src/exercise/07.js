@@ -1,5 +1,5 @@
 // Rendering Lists
-// http://localhost:3000/isolated/final/07.js
+// http://localhost:3000/isolated/exercise/07.js
 
 import React from 'react'
 
