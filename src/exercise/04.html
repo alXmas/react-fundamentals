@@ -8,14 +8,6 @@
   <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.js"></script>
   <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
-    const PropTypes = {
-      string(props, propName, componentName) {
-        if (typeof props[propName] !== 'string') {
-          return new Error(`Expected ${componentName} ${propName} to be a string.`)
-        }
-      },
-    }
-
     function Message({subject, greeting}) {
       return (
         <div className="message">
@@ -23,18 +15,18 @@
         </div>
       )
     }
-
     Message.propTypes = {
-      subject: PropTypes.string,
-      greeting: PropTypes.string,
+      subject: PropTypes.string.isRequired,
+      greeting: PropTypes.string.isRequired,
     }
 
     const element = (
-      <div className="container">
+      <>
         <Message subject="World" greeting="Hello" />
-        <Message subject={false} greeting="Goodbye" />
-      </div>
+        <Message subject="World" greeting="Goodbye" />
+      </>
     )
+
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
